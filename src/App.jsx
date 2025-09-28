@@ -18,12 +18,14 @@ function App() {
     });
   }
 
-  function handleAddProject(projecctData) {
+  function handleAddProject(projectData) {
     setProjectState((prevState) => {
-      const newProject = { ...projecctData, id: Math.random() };
+      const projectId = Math.random();
+      const newProject = { ...projectData, id: projectId };
       return {
         ...prevState,
-        projects: [...prevState.projects, ...newProject],
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject],
       };
     });
   }
@@ -38,7 +40,10 @@ function App() {
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar onStartAddProject={handleStartAddProject} />
+      <ProjectsSidebar
+        onStartAddProject={handleStartAddProject}
+        projects={projectState.projects}
+      />
       {content}
     </main>
   );
