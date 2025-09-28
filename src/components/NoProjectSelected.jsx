@@ -12,7 +12,7 @@ export default function NoProjectSelected({ onStartAddProject }) {
         Select a project or get started with a new one
       </p>
       <p className="mt-8">
-        <Button onclick={onStartAddProject}>Create new project</Button>
+        <Button onClick={onStartAddProject}>Create new project</Button>
       </p>
     </div>
   );
